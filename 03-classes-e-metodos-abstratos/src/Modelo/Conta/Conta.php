@@ -6,19 +6,17 @@ class Conta
 {
 
     private $titular;
-    private float $saldo;
+    protected float $saldo;
     private static $numeroDeContas = 0;
-    private $tipo;
 
     /*
      * $tipo 1 == Conta Corrente; 2 == Conta Poupança
      */
 
-    public function __construct(Titular $titular, int $tipo)
+    public function __construct(Titular $titular)
     {
         $this->titular = $titular;
         $this->saldo = 0;
-        $this->tipo = $tipo;
 
         self::$numeroDeContas++;
     }
@@ -32,12 +30,7 @@ class Conta
 
     public function saca(float $valorASacar): void
     {
-        if($this->tipo === 1) {
-            $tarifaDeSaque = $valorASacar * 0.05;
-        } else {
-            $tarifaDeSaque = $valorSaque = 0.03;
-        }
-
+        $tarifaDeSaque = $valorASacar * 0.05;
         $valorSaque = $valorASacar + $tarifaDeSaque;
         if ($valorSaque > $this->saldo) {
             echo "Saldo indisponivel";
