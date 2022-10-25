@@ -5,7 +5,7 @@ namespace Alura\Banco\Modelo;
 class Funcionario extends Pessoa
 {
     private string $cargo;
-    private string $salario;
+    private float $salario;
 
     public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
     {
@@ -26,6 +26,9 @@ class Funcionario extends Pessoa
 
     public function calculaBonificacao(): float
     {
-        return $this->salario * 0.1;
+        if ($this->cargo === 'Gerente') {
+            return $this->salario;
+        }
+        return $this->salario * 0.1;;
     }
 }
