@@ -5,7 +5,7 @@ require_once 'autoload.php';
 
 use Alura\Banco\Service\ControladorDeBonificacoes;
 use Alura\Banco\Modelo\CPF;
-use Alura\Banco\Modelo\Funcionario\{Desenvolvedor, Funcionario, Gerente, Diretor};
+use Alura\Banco\Modelo\Funcionario\{Desenvolvedor, Gerente, Diretor};
 
 $funcinario1 = new Gerente('Pedro Lucas', new CPF('456.789.123-11'), 'Gerente', 4000);
 
