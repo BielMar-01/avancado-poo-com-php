@@ -46,6 +46,10 @@ class Endereco
         return $this->numero;
     }
 
+    public function alteraCidade($novaCidade): void{
+        $this->cidade = $novaCidade;
+    }
+
     public function __toString(): string
     {
         return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
@@ -56,4 +60,11 @@ class Endereco
         $metodo = 'recupera' . ucfirst($nomeAtributo);
         return $this->$metodo();
     }
+
+    public function __set($nomeAtributo, $value): void{
+        $metodo = 'altera' . ucfirst($nomeAtributo);
+        $this->$metodo($value);
+
+    }
+
 }
